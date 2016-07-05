@@ -19,6 +19,9 @@ public class Review {
     @Column(nullable = false)
     String text;
 
+    @Transient
+    int lecturerId;
+
     @Column(nullable = false)
     boolean isGood;
 
@@ -35,10 +38,35 @@ public class Review {
         this.isGood = isGood;
     }
 
+    public Review(int id, String author, String text, int lecturerId, boolean isGood, Lecturer lecturer) {
+        this.id = id;
+        this.author = author;
+        this.text = text;
+        this.lecturerId = lecturerId;
+        this.isGood = isGood;
+        this.lecturer = lecturer;
+    }
+
+    public Review(String author, String text, int lecturerId, boolean isGood, Lecturer lecturer) {
+        this.author = author;
+        this.text = text;
+        this.lecturerId = lecturerId;
+        this.isGood = isGood;
+        this.lecturer = lecturer;
+    }
+
     public Review(String author, String text, boolean isGood) {
         this.author = author;
         this.text = text;
         this.isGood = isGood;
+    }
+
+    public int getLecturerId() {
+        return lecturer.id;
+    }
+
+    public void setLecturerId(int lecturerId) {
+        this.lecturerId = lecturerId;
     }
 
     public Review(String author, String text, boolean isGood, Lecturer lecturer) {
@@ -72,11 +100,11 @@ public class Review {
         this.text = text;
     }
 
-    public boolean isGood() {
+    public boolean getIsGood() {
         return isGood;
     }
 
-    public void setGood(boolean good) {
+    public void setIsGood(boolean good) {
         isGood = good;
     }
 
