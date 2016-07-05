@@ -24,8 +24,6 @@ public class HannibalLecturerRestController {
 
     @RequestMapping(path = "/lecturers", method = RequestMethod.GET)
     public Iterable<Lecturer> getLecturers() {
-
-
         return lecturers.findAll();
 
     }
